@@ -42,3 +42,21 @@
 +Track prices over time (price history) to help users decide when to buy.
 +
 +Notify / alert users when prices drop or when a deal hits their target.
+
+# 2025-11-22 20:11:34.411721
++Use APIs from retailers if available (Amazon, Walmart, etc.).
++
++Use affiliate APIs (or partner integrations) to get product catalogs + pricing.
++
++Web-scraping (if legal and allowed) — but be careful with terms of service.
++
++Crowdsourced data: allow users to input/scan prices in their local stores.
+
+# 2025-11-22 20:11:34.412028
++Use APIs from retailers if available (Amazon, Walmart, etc.).
++
++Use affiliate APIs (or partner integrations) to get product catalogs + pricing.
++
++Web-scraping (if legal and allowed) — but be careful with terms of service.
++
++Crowdsourced data: allow users to input/scan prices in their local stores.
