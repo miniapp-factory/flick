@@ -20,3 +20,25 @@
 
 # 2025-11-22 19:27:37.138326
 +apply changes
+
+# 2025-11-22 19:52:50.933080
++Search for a product (by name, barcode, SKU, etc.).
++
++Fetch data from multiple “markets” (retailers or e-commerce platforms) for that product: price, availability, specs, shipping, etc.
++
++Compare those results in a clean UI (table, list, charts) so users can easily pick the best deal.
++
++Track prices over time (price history) to help users decide when to buy.
++
++Notify / alert users when prices drop or when a deal hits their target.
+
+# 2025-11-22 19:52:50.934965
++Search for a product (by name, barcode, SKU, etc.).
++
++Fetch data from multiple “markets” (retailers or e-commerce platforms) for that product: price, availability, specs, shipping, etc.
++
++Compare those results in a clean UI (table, list, charts) so users can easily pick the best deal.
++
++Track prices over time (price history) to help users decide when to buy.
++
++Notify / alert users when prices drop or when a deal hits their target.
