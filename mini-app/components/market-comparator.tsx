@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { getMarketDataFromAPI } from "@/services/market-api";
 
 interface MarketData {
   market: string;
@@ -28,105 +29,7 @@ export default function MarketComparator() {
   // Mock fetch function simulating multiple market data
   const fetchMarketData = async (name: string): Promise<Product[]> => {
     // In a real app, replace this with API calls
-    const demoProducts: Product[] = [
-      {
-        id: 1,
-        name: "Product A",
-        quality: 8,
-        price: 120,
-        markets: [
-          {
-            market: "Retailer X",
-            price: 118,
-            availability: "In Stock",
-            specs: "Spec A1",
-            shipping: "Free",
-          },
-          {
-            market: "Retailer Y",
-            price: 122,
-            availability: "In Stock",
-            specs: "Spec A2",
-            shipping: "5€",
-          },
-        ],
-        priceHistory: [120, 118, 119],
-      },
-      {
-        id: 2,
-        name: "Product B",
-        quality: 9,
-        price: 150,
-        markets: [
-          {
-            market: "Retailer X",
-            price: 148,
-            availability: "In Stock",
-            specs: "Spec B1",
-            shipping: "Free",
-          },
-          {
-            market: "Retailer Y",
-            price: 152,
-            availability: "In Stock",
-            specs: "Spec B2",
-            shipping: "5€",
-          },
-        ],
-        priceHistory: [150, 148, 149],
-      },
-      {
-        id: 3,
-        name: "Product C",
-        quality: 7,
-        price: 90,
-        markets: [
-          {
-            market: "Retailer X",
-            price: 88,
-            availability: "In Stock",
-            specs: "Spec C1",
-            shipping: "Free",
-          },
-          {
-            market: "Retailer Y",
-            price: 92,
-            availability: "In Stock",
-            specs: "Spec C2",
-            shipping: "5€",
-          },
-        ],
-        priceHistory: [90, 88, 89],
-      },
-      {
-        id: 4,
-        name: "Product D",
-        quality: 10,
-        price: 200,
-        markets: [
-          {
-            market: "Retailer X",
-            price: 198,
-            availability: "In Stock",
-            specs: "Spec D1",
-            shipping: "Free",
-          },
-          {
-            market: "Retailer Y",
-            price: 202,
-            availability: "In Stock",
-            specs: "Spec D2",
-            shipping: "5€",
-          },
-        ],
-        priceHistory: [200, 198, 199],
-      },
-    ];
-
-    // Filter by search term (case-insensitive)
-    return demoProducts.filter((p) =>
-      p.name.toLowerCase().includes(name.toLowerCase())
-    );
+    return getMarketDataFromAPI(name);
   };
 
   // Fetch data when search term changes
