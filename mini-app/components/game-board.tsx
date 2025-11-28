@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
+const colors = ["blue", "orange", "red", "purple", "green"];
+
 export default function GameBoard() {
-  // Placeholder for the balloon merge game.
-  // The actual game logic will be added later.
   const [grid, setGrid] = useState<string[][]>([
     ["", "", "", "", ""],
     ["", "", "", "", ""],
@@ -13,18 +13,60 @@ export default function GameBoard() {
     ["", "", "", "", ""],
   ]);
 
+  const [selected, setSelected] = useState<{ row: number; col: number } | null>(null);
+  const [score, setScore] = useState(0);
+
+  const handleCellClick = (row: number, col: number) => {
+    const cell = grid[row][col];
+    if (!cell) return;
+
+    if (!selected) {
+      setSelected({ row, col });
+      return;
+    }
+
+    const { row: selRow, col: selCol } = selected;
+    const selectedCell = grid[selRow][selCol];
+
+    if (selectedCell === cell && !(selRow === row && selCol === col)) {
+      // Merge
+      const idx = colors.indexOf(cell);
+      const nextColor = colors[idx + 1] ?? cell;
+
+      setGrid(prev => {
+        const newGrid = prev.map(r => [...r]);
+        newGrid[row][col] = nextColor;
+        newGrid[selRow][selCol] = "";
+        return newGrid;
+      });
+
+      setScore(prev => prev + 1);
+      setSelected(null);
+    } else {
+      // Select new cell
+      setSelected({ row, col });
+    }
+  };
+
   return (
-    <div className="grid grid-cols-5 gap-2 p-4">
-      {grid.map((row, rIdx) =>
-        row.map((cell, cIdx) => (
-          <div
-            key={`${rIdx}-${cIdx}`}
-            className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center"
-          >
-            {cell}
-          </div>
-        ))
-      )}
+    <div className="flex flex-col items-center gap-4">
+      <div className="text-xl">Score: {score}</div>
+      <div className="grid grid-cols-5 gap-2 p-4">
+        {grid.map((row, rIdx) =>
+          row.map((cell, cIdx) => (
+            <div
+              key={`${rIdx}-${cIdx}`}
+              className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                cell ? "border-2 border-black" : ""
+              }`}
+              style={{ backgroundColor: cell || "#d1d5db" }}
+              onClick={() => handleCellClick(rIdx, cIdx)}
+            >
+              {cell && <span className="text-white font-bold">{cell}</span>}
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
