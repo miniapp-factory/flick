@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const colors = ["blue", "orange", "red", "purple", "green"];
+const colors = ["white", "yellow", "orange", "green", "blue", "red", "black"];
 
 export default function GameBoard() {
   const [grid, setGrid] = useState<string[][]>([
@@ -31,17 +31,47 @@ export default function GameBoard() {
     if (selectedCell === cell && !(selRow === row && selCol === col)) {
       // Merge
       const idx = colors.indexOf(cell);
-      const nextColor = colors[idx + 1] ?? cell;
-
-      setGrid(prev => {
-        const newGrid = prev.map(r => [...r]);
-        newGrid[row][col] = nextColor;
-        newGrid[selRow][selCol] = "";
-        return newGrid;
-      });
-
-      setScore(prev => prev + 1);
+      let nextColor: string | "" = "";
+      let points = 0;
+      switch (cell) {
+        case "white":
+          nextColor = "yellow";
+          points = 10;
+          break;
+        case "yellow":
+          nextColor = "orange";
+          points = 20;
+          break;
+        case "orange":
+          nextColor = "red";
+          points = 30;
+          break;
+        case "green":
+          nextColor = "blue";
+          points = 40;
+          break;
+        case "blue":
+          nextColor = "red";
+          points = 50;
+          break;
+        case "red":
+          nextColor = "black";
+          points = 60;
+          break;
+        case "black":
+          nextColor = "";
+          points = 100;
+          break;
+      }
+      const newGrid = grid.map(r => [...r]);
+      newGrid[row][col] = nextColor;
+      newGrid[selRow][selCol] = "";
+      setGrid(newGrid);
+      setScore(prev => prev + points);
       setSelected(null);
+      if (newGrid.flat().every(c => !c)) {
+        alert("Level complete!");
+      }
     } else {
       // Select new cell
       setSelected({ row, col });
