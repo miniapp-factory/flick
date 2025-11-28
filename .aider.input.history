@@ -48,3 +48,15 @@
 +Player drags (or taps / drops) items into the grid or board. If two (or more) identical items meet under merge conditions (adjacent, or same drop location, or same “type + level”), they merge into a new, higher-level item.
 +
 +Merging may give the player points, free up space on board, or produce resources / currency / bonuses. Over time, this lets players progress, reach higher levels of items, unlock new content, or “win” a level / objective.
+
+# 2025-11-28 21:18:00.716628
++the balloons must be the same color to be merged. For example, dragging a blue balloon to another blue balloon would turn it into orange balloon
+
+# 2025-11-28 21:18:00.717028
++the balloons must be the same color to be merged. For example, dragging a blue balloon to another blue balloon would turn it into orange balloon
+
+# 2025-11-28 21:18:43.452815
++apply changes
+
+# 2025-11-28 21:18:43.453408
++apply changes
