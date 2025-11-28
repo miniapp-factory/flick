@@ -34,3 +34,17 @@
 +```
 +
 +Generate an app logo and update the app metadata title and description.
+
+# 2025-11-28 18:12:43.197003
++the items must be balloons. Game presents a grid or drops area (e.g. a 5×5 or 6×6 grid, or a free-drop zone). 
++Player gets items (blocks, balloons, fruits, monsters, etc.) — maybe new items spawn randomly or from a “hand” or inventory. 
++Player drags (or taps / drops) items into the grid or board. If two (or more) identical items meet under merge conditions (adjacent, or same drop location, or same “type + level”), they merge into a new, higher-level item.
++
++Merging may give the player points, free up space on board, or produce resources / currency / bonuses. Over time, this lets players progress, reach higher levels of items, unlock new content, or “win” a level / objective.
+
+# 2025-11-28 18:12:43.197362
++the items must be balloons. Game presents a grid or drops area (e.g. a 5×5 or 6×6 grid, or a free-drop zone). 
++Player gets items (blocks, balloons, fruits, monsters, etc.) — maybe new items spawn randomly or from a “hand” or inventory. 
++Player drags (or taps / drops) items into the grid or board. If two (or more) identical items meet under merge conditions (adjacent, or same drop location, or same “type + level”), they merge into a new, higher-level item.
++
++Merging may give the player points, free up space on board, or produce resources / currency / bonuses. Over time, this lets players progress, reach higher levels of items, unlock new content, or “win” a level / objective.
