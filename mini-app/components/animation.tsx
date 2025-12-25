@@ -90,15 +90,6 @@ export default function Animation() {
           Pause
         </button>
       )}
-      {/* Play button */}
-      {!running && (
-        <button
-          className="absolute inset-0 flex items-center justify-center text-4xl font-bold"
-          onClick={togglePlay}
-        >
-          ▶️
-        </button>
-      )}
       {/* Canvas for animation */}
       <canvas
         ref={canvasRef}
