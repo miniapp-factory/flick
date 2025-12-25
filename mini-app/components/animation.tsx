@@ -43,7 +43,11 @@ export default function Animation() {
         setSpeed((prev) => prev + SPEED_INCREMENT * delta);
 
         // Move boy
-        setBoyX((prev) => prev + speed * delta * 100); // scale for canvas pixels
+        setBoyX((prev) => {
+          const newX = prev + speed * delta * 100;
+          const maxX = canvasSize.width - BOX_SIZE;
+          return Math.min(newX, maxX);
+        });
 
         // Simple obstacle logic
         if (!obstacle) {
