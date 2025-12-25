@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const BOX_SIZE = 50;
 const BAR_HEIGHT = 30;
 const INITIAL_SPEED = 5; // m/s
-const SPEED_INCREMENT = 0.5; // m/s per second
+const SPEED_INCREMENT = 4; // m/s per second
 
 export default function Animation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
