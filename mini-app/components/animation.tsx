@@ -9,6 +9,7 @@ const SPEED_INCREMENT = 0.5; // m/s per second
 
 export default function Animation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
   const [running, setRunning] = useState(false);
   const [speed, setSpeed] = useState(INITIAL_SPEED);
   const [boyX, setBoyX] = useState(0);
@@ -20,6 +21,15 @@ export default function Animation() {
   const togglePlay = () => setRunning((prev) => !prev);
 
   // Animation loop
+  useEffect(() => {
+    const handleResize = () => {
+      setCanvasSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     let animationFrameId: number;
     let lastTime = performance.now();
@@ -88,8 +98,8 @@ export default function Animation() {
       {/* Canvas for animation */}
       <canvas
         ref={canvasRef}
-        width={window.innerWidth}
-        height={window.innerHeight}
+        width={canvasSize.width}
+        height={canvasSize.height}
         className="absolute inset-0"
       />
       {/* Boy */}
